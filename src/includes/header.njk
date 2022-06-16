@@ -1,0 +1,28 @@
+<header class="site-header">
+	<div class="container width--max">
+		
+		<button class="start-button button type--icon">Start</button>
+
+		{# Navigation goes here #}
+
+		<hr class="type--vr">
+		<hr class="type--grab">
+
+		{% for app in collections.app %}
+			<button class="button--icon-only" style="background-image: url(img/icons/{{ app.data.icon }});">
+				<span class="sr-only">{{ app.data.title }}</span>
+			</button>
+		{% endfor %}
+
+		{% if collections.app %}
+			<hr class="type--vr">
+			<hr class="type--grab">
+		{% endif %}
+
+		{# ul of featured apps goes here #}
+
+		{# Time and soud control goes here #}
+
+	 	{% include 'navigation.njk' %}
+	</div>
+</header>

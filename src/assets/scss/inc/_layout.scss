@@ -1,0 +1,71 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* Force header (toolbar) to bottom of page
+ *----------------------------------*/
+html {
+  height: 100%;
+  font-family: sans-serif;
+
+  body {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  header {
+    flex-shrink: 0;
+  }
+}
+
+main {
+  background-color: $desktop-background;
+}
+
+/* Font Sizes
+ *----------------------------------*/
+p,
+a {
+  margin-top: 1rem;
+  font-size: $text-regular;
+}
+
+h1 {
+  font-size: $heading-1;
+}
+
+h2 {
+  font-size: $heading-2;
+}
+
+h3 {
+  font-size: $heading-3;
+}
+
+h4 {
+  font-size: $heading-4;
+}
+
+/* Containers
+ *----------------------------------*/
+.container {
+  margin: 0 auto;
+  width: 100%;
+
+  &.width--max {
+    max-width: 100%;
+  }
+}
