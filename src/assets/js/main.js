@@ -1,13 +1,8 @@
-$( document ).ready(function() {
-    
 //--- Navigation
-	const menuToggle = $('.header__menu-toggle');
-	const navigation = $('.header__main-nav');
+const menuToggle = document.querySelector('.site-header .start-button');
+const navigation = document.querySelector('.site__nav');
 
-	menuToggle.click(function() {
-		navigation.addClass('open');
-	});
-
-
-
+menuToggle.addEventListener('click', () => {
+	navigation.classList.toggle('active');
+	menuToggle.classList.toggle('active');
 });

@@ -10,16 +10,85 @@
   }
 }
 
+/* Toolbar
+ * ----------------------------------------------- */
 .site-header {
   @include shadows;
   border-width: 0.3rem;
   padding: 0.6rem;
   height: 5rem;
   background-color: $toolbar-background;
+  position: relative;
 
   .container {
     display: flex;
     align-items: center;
     height: 100%;
+  }
+}
+
+/* Navigation
+ * ----------------------------------------------- */
+.site__nav {
+  @include shadows;
+  display: none;
+  padding-left: 4rem;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background-color: $toolbar-background;
+  width: 100%;
+  max-width: 36rem;
+  border-width: 0.4rem;
+
+  &.active {
+    display: block;
+  }
+
+  //--- Windows Blue Text
+  &::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4rem;
+    background: linear-gradient($black, #1b00ff);
+  }
+
+  //--- Menu Button
+  li > button {
+    @include reset-button;
+    display: flex;
+    align-items: center;
+    padding: 0.3rem 2.4rem 0.3rem 0.3rem;
+    width: 100%;
+    text-align: left;
+    font-size: 2rem;
+    position: relative;
+
+    > img {
+      margin-right: 1rem;
+      width: 100%;
+      max-width: 6rem;
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      width: 0;
+      height: 0;
+      border: 0.8rem solid transparent;
+      border-left-color: $black;
+      position: absolute;
+      top: 50%;
+      right: 0.2rem;
+      transform: translateY(-50%);
+    }
+  }
+
+  li > ul {
+    display: none;
   }
 }

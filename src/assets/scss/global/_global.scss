@@ -46,7 +46,8 @@ $heading-4: 2rem;
   border-right-color: $toolbar-background-dark;
   line-height: 1.2;
 
-  &:active {
+  &:active,
+  &.active {
     box-shadow: inset 2px 2px 2px 2px #3f3e40;
     border-bottom-color: $toolbar-background;
     border-right-color: $toolbar-background;
@@ -112,6 +113,11 @@ $heading-4: 2rem;
 }
 
 hr {
+  margin: 0 auto;
+  width: calc(100% - 0.6rem);
+  background-color: $toolbar-background-dark;
+  border-bottom: 1px solid $toolbar-background-light;
+
   &.type--vr {
     padding: 0;
     margin: 0 0.6rem;

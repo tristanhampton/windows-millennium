@@ -406,7 +406,7 @@ body {
   border-right-color: #4b4b4b;
   line-height: 1.2;
 }
-.button:active {
+.button:active, .button.active {
   box-shadow: inset 2px 2px 2px 2px #3f3e40;
   border-bottom-color: #d3d0c7;
   border-right-color: #d3d0c7;
@@ -452,6 +452,12 @@ body {
 
 /* Other
  * ----------------------------------------------- */
+hr {
+  margin: 0 auto;
+  width: calc(100% - 0.6rem);
+  background-color: #4b4b4b;
+  border-bottom: 1px solid #f5f4f2;
+}
 hr.type--vr {
   padding: 0;
   margin: 0 0.6rem;
@@ -568,6 +574,8 @@ h4 {
   background-image: url("../img/logo-windows.png");
 }
 
+/* Toolbar
+ * ----------------------------------------------- */
 .site-header {
   border: 0.1rem solid #f5f4f2;
   border-bottom-color: #4b4b4b;
@@ -576,11 +584,77 @@ h4 {
   padding: 0.6rem;
   height: 5rem;
   background-color: #d3d0c7;
+  position: relative;
 }
 .site-header .container {
   display: flex;
   align-items: center;
   height: 100%;
+}
+
+/* Navigation
+ * ----------------------------------------------- */
+.site__nav {
+  border: 0.1rem solid #f5f4f2;
+  border-bottom-color: #4b4b4b;
+  border-right-color: #4b4b4b;
+  display: none;
+  padding-left: 4rem;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background-color: #d3d0c7;
+  width: 100%;
+  max-width: 36rem;
+  border-width: 0.4rem;
+}
+.site__nav.active {
+  display: block;
+}
+.site__nav::before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4rem;
+  background: linear-gradient(#111, #1b00ff);
+}
+.site__nav li > button {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: none;
+  display: flex;
+  align-items: center;
+  padding: 0.3rem 2.4rem 0.3rem 0.3rem;
+  width: 100%;
+  text-align: left;
+  font-size: 2rem;
+  position: relative;
+}
+.site__nav li > button > img {
+  margin-right: 1rem;
+  width: 100%;
+  max-width: 6rem;
+}
+.site__nav li > button::after {
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 0.8rem solid transparent;
+  border-left-color: #111;
+  position: absolute;
+  top: 50%;
+  right: 0.2rem;
+  transform: translateY(-50%);
+}
+.site__nav li > ul {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
