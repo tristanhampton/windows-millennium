@@ -41,6 +41,11 @@
   max-width: 36rem;
   border-width: 0.4rem;
 
+  @include max-bp(500) {
+    padding-left: 2rem;
+    max-width: 18rem;
+  }
+
   &.active {
     display: block;
   }
@@ -55,6 +60,10 @@
     bottom: 0;
     width: 4rem;
     background: linear-gradient($black, #1b00ff);
+
+    @include max-bp(500) {
+      width: 2rem;
+    }
   }
 
   //--- Shared Item Styles
@@ -77,6 +86,10 @@
         margin-right: 1rem;
         width: 100%;
       }
+
+      @include max-bp(500) {
+        font-size: 1.6rem;
+      }
     }
 
     &.has-children {
@@ -97,6 +110,10 @@
         top: 50%;
         right: 0.2rem;
         transform: translateY(-50%);
+
+        @include max-bp(500) {
+          border-width: 0.4rem;
+        }
       }
     }
   }
@@ -110,10 +127,18 @@
       &:focus + ul {
         display: block;
       }
+
+      @include max-bp(500) {
+        padding: 0.2rem;
+      }
     }
 
     > li > button > img {
       max-width: 6rem;
+
+      @include max-bp(500) {
+        max-width: 2.2rem;
+      }
     }
   }
 
@@ -132,6 +157,10 @@
     &:hover,
     &:focus {
       display: block;
+    }
+
+    @include max-bp(500) {
+      max-width: 36rem;
     }
 
     > li {

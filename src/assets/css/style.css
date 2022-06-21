@@ -758,6 +758,12 @@ h4 {
   max-width: 36rem;
   border-width: 0.4rem;
 }
+@media (max-width: 500px) {
+  .site__nav {
+    padding-left: 2rem;
+    max-width: 18rem;
+  }
+}
 .site__nav.active {
   display: block;
 }
@@ -770,6 +776,11 @@ h4 {
   bottom: 0;
   width: 4rem;
   background: linear-gradient(#111, #1b00ff);
+}
+@media (max-width: 500px) {
+  .site__nav::before {
+    width: 2rem;
+  }
 }
 .site__nav li > button {
   padding: 0;
@@ -792,6 +803,11 @@ h4 {
   margin-right: 1rem;
   width: 100%;
 }
+@media (max-width: 500px) {
+  .site__nav li > button {
+    font-size: 1.6rem;
+  }
+}
 .site__nav li.has-children {
   position: relative;
 }
@@ -810,14 +826,29 @@ h4 {
   right: 0.2rem;
   transform: translateY(-50%);
 }
+@media (max-width: 500px) {
+  .site__nav li.has-children > button::after {
+    border-width: 0.4rem;
+  }
+}
 .site__nav .nav__first > li > button {
   padding: 0.4rem;
 }
 .site__nav .nav__first > li > button:hover + ul, .site__nav .nav__first > li > button:focus + ul {
   display: block;
 }
+@media (max-width: 500px) {
+  .site__nav .nav__first > li > button {
+    padding: 0.2rem;
+  }
+}
 .site__nav .nav__first > li > button > img {
   max-width: 6rem;
+}
+@media (max-width: 500px) {
+  .site__nav .nav__first > li > button > img {
+    max-width: 2.2rem;
+  }
 }
 .site__nav .nav__second {
   border: 0.1rem solid #f5f4f2;
@@ -835,6 +866,11 @@ h4 {
 }
 .site__nav .nav__second:hover, .site__nav .nav__second:focus {
   display: block;
+}
+@media (max-width: 500px) {
+  .site__nav .nav__second {
+    max-width: 36rem;
+  }
 }
 .site__nav .nav__second > li > button {
   padding: 0.3rem;
