@@ -7,6 +7,11 @@ menuToggle.addEventListener('click', () => {
 	menuToggle.classList.toggle('active');
 });
 
+function closeMenu() {
+	menuToggle.classList.remove('active');
+	navigation.classList.remove('active');
+}
+
 //--- Apps
 const iframeButtons = document.querySelectorAll('button.js-load-iframe');
 
@@ -35,13 +40,20 @@ function initGame(src, img, title) {
 	iframe.setAttribute('src', src);
 	desktop.appendChild(gameWindow);
 
+	// attach close function
 	closteBtn.addEventListener('click', function (e) {
 		closeWindow(e.target);
 	});
 
-	maximizeBtn.addEventListener('click', function (e) {
-		maximizeWindow(e.target);
-	});
+	// attach maximize function
+	if (maximizeBtn != undefined) {
+		maximizeBtn.addEventListener('click', function (e) {
+			maximizeWindow(e.target);
+		});
+	}
+
+	// if opening game from menu, close it
+	closeMenu();
 }
 
 function closeWindow(closeButton) {
