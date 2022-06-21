@@ -653,6 +653,12 @@ h4 {
   border: none;
   overflow: hidden;
 }
+@media (max-width: 500px) {
+  .window iframe {
+    width: 300px;
+    height: 300px;
+  }
+}
 
 .desktop__apps {
   display: grid;
@@ -664,6 +670,13 @@ h4 {
   padding: 0.6rem;
   width: 100%;
   height: 100%;
+}
+@media (max-width: 500px) {
+  .desktop__apps {
+    grid-template-columns: repeat(auto-fill, 8rem);
+    grid-template-rows: repeat(auto-fill, 8rem);
+    gap: 2rem;
+  }
 }
 
 .desktop__apps button {
@@ -690,6 +703,14 @@ h4 {
 }
 .desktop__apps button:active p {
   background-color: #0d18c3;
+}
+@media (max-width: 500px) {
+  .desktop__apps button img {
+    max-width: 3rem;
+  }
+  .desktop__apps button p {
+    font-size: 1.6rem;
+  }
 }
 
 /* Start Button

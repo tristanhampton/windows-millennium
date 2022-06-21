@@ -8,6 +8,12 @@
   padding: 0.6rem;
   width: 100%;
   height: 100%;
+
+  @include max-bp(500) {
+    grid-template-columns: repeat(auto-fill, 8rem);
+    grid-template-rows: repeat(auto-fill, 8rem);
+    gap: 2rem;
+  }
 }
 
 .desktop__apps button {
@@ -35,6 +41,16 @@
   &:active {
     p {
       background-color: #0d18c3;
+    }
+  }
+
+  @include max-bp(500) {
+    img {
+      max-width: 3rem;
+    }
+
+    p {
+      font-size: 1.6rem;
     }
   }
 }
