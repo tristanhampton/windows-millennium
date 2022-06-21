@@ -57,38 +57,92 @@
     background: linear-gradient($black, #1b00ff);
   }
 
-  //--- Menu Button
-  li > button {
-    @include reset-button;
-    display: flex;
-    align-items: center;
-    padding: 0.3rem 2.4rem 0.3rem 0.3rem;
-    width: 100%;
-    text-align: left;
-    font-size: 2rem;
-    position: relative;
-
-    > img {
-      margin-right: 1rem;
+  //--- Shared Item Styles
+  li {
+    > button {
+      @include reset-button;
+      display: flex;
+      align-items: center;
       width: 100%;
-      max-width: 6rem;
+      text-align: left;
+      font-size: 2rem;
+
+      &:hover,
+      &:focus {
+        background-color: #0d17c0;
+        color: $white;
+      }
+
+      > img {
+        margin-right: 1rem;
+        width: 100%;
+      }
     }
 
-    &::after {
-      display: block;
-      content: "";
-      width: 0;
-      height: 0;
-      border: 0.8rem solid transparent;
-      border-left-color: $black;
-      position: absolute;
-      top: 50%;
-      right: 0.2rem;
-      transform: translateY(-50%);
+    &.has-children {
+      position: relative;
+
+      > button {
+        padding-right: 2.4rem;
+      }
+
+      > button::after {
+        display: block;
+        content: "";
+        width: 0;
+        height: 0;
+        border: 0.8rem solid transparent;
+        border-left-color: currentColor;
+        position: absolute;
+        top: 50%;
+        right: 0.2rem;
+        transform: translateY(-50%);
+      }
     }
   }
 
-  li > ul {
+  //--- Parent Menu Button
+  .nav__first {
+    > li > button {
+      padding: 0.4rem;
+
+      &:hover + ul,
+      &:focus + ul {
+        display: block;
+      }
+    }
+
+    > li > button > img {
+      max-width: 6rem;
+    }
+  }
+
+  .nav__second {
+    @include shadows;
     display: none;
+    position: absolute;
+    top: 50%;
+    left: calc(100% - 0.3rem);
+    background-color: $toolbar-background;
+    border-width: 0.4rem;
+    width: 100%;
+    max-width: 30rem;
+    transform: translateY(-50%);
+
+    &:hover,
+    &:focus {
+      display: block;
+    }
+
+    > li {
+    }
+
+    > li > button {
+      padding: 0.3rem;
+    }
+
+    > li > button > img {
+      max-width: 2rem;
+    }
   }
 }

@@ -23,6 +23,31 @@ module.exports = function (config) {
 	//--- Adds Fonts to _site
 	config.addPassthroughCopy({ "src/assets/fonts": "fonts" });
 
+	//--- Dump filter
+	config.addFilter('dump', (value) => {
+		if (value) {
+			const postData = value.map((post) => {
+				return {
+					date: post.date,
+					url: post.url,
+					data: {
+						title: post.data.title,
+						excerpt: post.data.excerpt,
+					},
+				};
+			});
+
+			return JSON.stringify({
+				collections: {
+					post: postData,
+				},
+			}, null, 2);
+		} else {
+			return value;
+		}
+
+	});
+
 	return {
 		pathPrefix: "/", // useful for GitHub pages
 		dir: {

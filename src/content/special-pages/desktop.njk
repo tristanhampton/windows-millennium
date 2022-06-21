@@ -1,0 +1,12 @@
+---
+layout: default
+siteTitle: "Windows Millennium"
+title: "Desktop"
+permalink: "/"
+---
+
+<ul class="desktop__apps">
+	{% for app in collections.desktop %}
+		<li><button><img src="img/icons/{{ app.data.icon }}" alt="{{ app.data.title }} icon"><p>{{ app.data.title }}</p></button></li>
+	{% endfor %}
+</ul>

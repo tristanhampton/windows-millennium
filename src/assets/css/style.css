@@ -563,6 +563,44 @@ h4 {
   max-width: 100%;
 }
 
+.desktop__apps {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 12rem);
+  grid-template-rows: repeat(auto-fill, 12rem);
+  place-items: center;
+  grid-auto-flow: column;
+  gap: 1rem;
+  padding: 0.6rem;
+  width: 100%;
+  height: 100%;
+}
+
+.desktop__apps button {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.desktop__apps button img {
+  width: 100%;
+  max-width: 4.5rem;
+}
+.desktop__apps button p {
+  color: inherit;
+}
+.desktop__apps button:focus p {
+  border: 1px dotted #fff;
+}
+.desktop__apps button:active p {
+  background-color: #0d18c3;
+}
+
 /* Start Button
  * ----------------------------------------------- */
 .start-button {
@@ -630,31 +668,67 @@ h4 {
   background: none;
   display: flex;
   align-items: center;
-  padding: 0.3rem 2.4rem 0.3rem 0.3rem;
   width: 100%;
   text-align: left;
   font-size: 2rem;
-  position: relative;
+}
+.site__nav li > button:hover, .site__nav li > button:focus {
+  background-color: #0d17c0;
+  color: #fff;
 }
 .site__nav li > button > img {
   margin-right: 1rem;
   width: 100%;
-  max-width: 6rem;
 }
-.site__nav li > button::after {
+.site__nav li.has-children {
+  position: relative;
+}
+.site__nav li.has-children > button {
+  padding-right: 2.4rem;
+}
+.site__nav li.has-children > button::after {
   display: block;
   content: "";
   width: 0;
   height: 0;
   border: 0.8rem solid transparent;
-  border-left-color: #111;
+  border-left-color: currentColor;
   position: absolute;
   top: 50%;
   right: 0.2rem;
   transform: translateY(-50%);
 }
-.site__nav li > ul {
+.site__nav .nav__first > li > button {
+  padding: 0.4rem;
+}
+.site__nav .nav__first > li > button:hover + ul, .site__nav .nav__first > li > button:focus + ul {
+  display: block;
+}
+.site__nav .nav__first > li > button > img {
+  max-width: 6rem;
+}
+.site__nav .nav__second {
+  border: 0.1rem solid #f5f4f2;
+  border-bottom-color: #4b4b4b;
+  border-right-color: #4b4b4b;
   display: none;
+  position: absolute;
+  top: 50%;
+  left: calc(100% - 0.3rem);
+  background-color: #d3d0c7;
+  border-width: 0.4rem;
+  width: 100%;
+  max-width: 30rem;
+  transform: translateY(-50%);
+}
+.site__nav .nav__second:hover, .site__nav .nav__second:focus {
+  display: block;
+}
+.site__nav .nav__second > li > button {
+  padding: 0.3rem;
+}
+.site__nav .nav__second > li > button > img {
+  max-width: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

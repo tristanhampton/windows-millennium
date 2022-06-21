@@ -1,22 +1,46 @@
 <nav class="site__nav">
-	<ul>
+	<ul class="nav__first">
 		<li><button><img src="img/icons/icon-update.png" alt="update icon"> Windows Update</button></li>
 		<hr>
-		<li>
+		<li class="has-children">
 			<button><img src="img/icons/icon-program.png" alt="programs icon"> Programs</button>
-			<ul></ul>
+			{% if collections.programs %}
+				<ul class="nav__second">
+					{% for app in collections.programs %}
+						<li><button><img src="img/icons/{{ app.data.icon }}" alt="{{ app.data.title }} icon">{{ app.data.title }}</button></li>
+					{% endfor %}
+				</ul>
+			{% endif %}
 		</li>
-		<li>
+		<li class="has-children">
 			<button><img src="img/icons/icon-documents.png" alt="documents icon"> Documents</button>
-			<ul></ul>
+			{% if collections.documents %}
+				<ul class="nav__second">
+					{% for app in collections.documents %}
+						<li><button><img src="img/icons/{{ app.data.icon }}" alt="{{ app.data.title }} icon">{{ app.data.title }}</button></li>
+					{% endfor %}
+				</ul>
+			{% endif %}
 		</li>
-		<li>
+		<li class="has-children">
 			<button><img src="img/icons/icon-settings.png" alt="settings icon"> Settings</button>
-			<ul></ul>
+			{% if collections.settings %}
+				<ul class="nav__second">
+					{% for app in collections.settings %}
+						<li><button><img src="img/icons/{{ app.data.icon }}" alt="{{ app.data.title }} icon">{{ app.data.title }}</button></li>
+					{% endfor %}
+				</ul>
+			{% endif %}
 		</li>
-		<li>
+		<li class="has-children">
 			<button><img src="img/icons/icon-search.png" alt="search icon"> Search</button>
-			<ul></ul>
+			{% if collections.search %}
+				<ul class="nav__second">
+					{% for app in collections.search %}
+						<li><button><img src="img/icons/{{ app.data.icon }}" alt="{{ app.data.title }} icon">{{ app.data.title }}</button></li>
+					{% endfor %}
+				</ul>
+			{% endif %}
 		</li>
 		<li><button><img src="img/icons/icon-help.png" alt="help icon"> Help</button></li>
 		<li><button><img src="img/icons/icon-run.png" alt="run icon"> Run...</button></li>
