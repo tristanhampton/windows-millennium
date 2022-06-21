@@ -7,7 +7,21 @@
 			{% if collections.programs %}
 				<ul class="nav__second">
 					{% for app in collections.programs %}
-						<li><button {% if app.data.iframe %} data-iframe="{{app.data.iframe}}" data-title="{{ app.data.title }}" data-icon="{{ app.data.icon }}" class="js-load-iframe" {% endif %}><img src="img/icons/{{ app.data.icon }}" alt="{{ app.data.title }} icon">{{ app.data.title }}</button></li>
+						<li>
+							<button 
+								class="
+									{{ 'game' if app.data.game }}
+									{{ 'js-load-iframe' if app.data.iframe }}
+									{{ 'browser' if app.data.browser }}
+								"
+								{% if app.data.iframe %}data-iframe="{{app.data.iframe}}"{% endif %} 
+								{% if app.data.title %}data-title="{{ app.data.title }}"{% endif %} 
+								{% if app.data.icon %}data-icon="{{ app.data.icon }}"{% endif %}
+							>
+							<img src="img/icons/{{ app.data.icon }}" alt="{{ app.data.title }} icon">
+							{{ app.data.title }}
+							</button>
+						</li>
 					{% endfor %}
 				</ul>
 			{% endif %}

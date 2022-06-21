@@ -12,10 +12,10 @@ function closeMenu() {
 	navigation.classList.remove('active');
 }
 
-//--- Apps
-const iframeButtons = document.querySelectorAll('button.js-load-iframe');
+//--- Pico 8 Games
+const gameButtons = document.querySelectorAll('button.game.js-load-iframe');
 
-iframeButtons.forEach(button => {
+gameButtons.forEach(button => {
 	button.addEventListener('click', function (e) {
 		const src = this.dataset.iframe;
 		const img = this.dataset.icon;
@@ -56,6 +56,62 @@ function initGame(src, img, title) {
 	closeMenu();
 }
 
+//--- "Internet Explorer"
+const ieButtons = document.querySelectorAll('button.browser.js-load-iframe');
+
+ieButtons.forEach(button => {
+	button.addEventListener('click', function (e) {
+		const src = this.dataset.iframe;
+		const img = this.dataset.icon;
+		const title = this.dataset.title;
+		const url = this.dataset.iframe;
+		initBrowser(src, img, title, url);
+	});
+});
+
+function initBrowser(src, img, title, url) {
+	const desktop = document.querySelector('main');
+	let template = document.querySelector('#template-browser');
+	let browserWindow = template.content.cloneNode(true);
+	let iframe = browserWindow.querySelector('iframe');
+	let browserTitle = browserWindow.querySelector('.window__title');
+	let browserIcon = browserWindow.querySelector('.window__icon');
+	let closteBtn = browserWindow.querySelector('.btn-window-control.type--close');
+	let maximizeBtn = browserWindow.querySelector('.btn-window-control.type--maximize');
+	let addressBar = browserWindow.querySelector('input.address');
+	let addressForm = browserWindow.querySelector('form');
+
+	browserIcon.setAttribute('src', 'img/icons/' + img);
+	browserTitle.innerText = title;
+
+	iframe.setAttribute('src', src);
+
+	addressBar.value = url;
+	desktop.appendChild(browserWindow);
+
+	// attach close function
+	closteBtn.addEventListener('click', function (e) {
+		closeWindow(e.target);
+	});
+
+	// attach maximize function
+	if (maximizeBtn != undefined) {
+		maximizeBtn.addEventListener('click', function (e) {
+			maximizeWindow(e.target);
+		});
+	}
+
+	addressForm.addEventListener('submit', function (e) {
+		e.preventDefault();
+		let newSrc = addressBar.value;
+		iframe.setAttribute('src', newSrc);
+	});
+
+	// if opening game from menu, close it
+	closeMenu();
+}
+
+//--- Window Functions
 function closeWindow(closeButton) {
 	let window = findAncestor(closeButton, 'window');
 	window.remove();

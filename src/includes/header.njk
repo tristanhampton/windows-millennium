@@ -8,7 +8,18 @@
 		<hr class="type--grab">
 
 		{% for app in collections.toolbar %}
-			<button class="button--icon-only {% if app.data.iframe %}js-load-iframe{% endif %}" style="background-image: url(img/icons/{{ app.data.icon }});" {% if app.data.iframe %} data-iframe="{{app.data.iframe}}" data-title="{{ app.data.title }}" data-icon="{{ app.data.icon }}" {% endif %}>
+			<button 
+				class="
+					button--icon-only
+					{{ 'game' if app.data.game }}
+					{{ 'js-load-iframe' if app.data.iframe }}
+					{{ 'browser' if app.data.browser }}
+				"
+				{% if app.data.iframe %}data-iframe="{{app.data.iframe}}"{% endif %} 
+				{% if app.data.title %}data-title="{{ app.data.title }}"{% endif %} 
+				{% if app.data.icon %}data-icon="{{ app.data.icon }}"{% endif %}
+				style="background-image: url(img/icons/{{ app.data.icon }});"
+			>
 				<span class="sr-only">{{ app.data.title }}</span>
 			</button>
 		{% endfor %}
