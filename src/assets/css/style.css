@@ -495,6 +495,59 @@ hr + hr[class*=type] {
   white-space: nowrap !important;
 }
 
+.btn-window-control {
+  border: 0.1rem solid #f5f4f2;
+  border-bottom-color: #4b4b4b;
+  border-right-color: #4b4b4b;
+  width: 2rem;
+  height: 2rem;
+  background-color: #d3d0c7;
+  position: relative;
+}
+.btn-window-control + .btn-window-control {
+  margin-left: 0.3rem;
+}
+.btn-window-control.type--minimize::after {
+  display: block;
+  content: "";
+  width: 50%;
+  position: absolute;
+  bottom: 0.2rem;
+  left: 50%;
+  height: 0.3rem;
+  background-color: #111;
+  transform: translateX(-50%);
+}
+.btn-window-control.type--maximize::after {
+  display: block;
+  content: "";
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  left: 50%;
+  border: 0.2rem solid #111;
+  border-top-width: 0.3rem;
+  transform: translateX(-50%) translateY(-50%);
+}
+.btn-window-control.type--close::before, .btn-window-control.type--close::after {
+  display: block;
+  content: "";
+  width: 80%;
+  height: 0.2rem;
+  position: absolute;
+  background-color: #111;
+}
+.btn-window-control.type--close::before {
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+}
+.btn-window-control.type--close::after {
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -561,6 +614,44 @@ h4 {
 }
 .container.width--max {
   max-width: 100%;
+}
+
+.window {
+  border: 0.1rem solid #f5f4f2;
+  border-bottom-color: #4b4b4b;
+  border-right-color: #4b4b4b;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #d3d0c7;
+}
+.window.maximized {
+  width: calc(100vw - 0.6rem);
+  height: calc(100vh - 0.6rem);
+}
+.window .window__header {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(75deg, #9f9f9f, #d3d0c7);
+  padding: 0.6rem;
+}
+.window .window__header .window__icon {
+  margin-right: 1rem;
+  width: 100%;
+  max-width: 2rem;
+}
+.window .window__header .window__title {
+  font-family: "Microsoft Sans Serif", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+.window .window__header button:first-of-type {
+  margin-left: auto;
+}
+.window iframe {
+  border: none;
+  overflow: hidden;
 }
 
 .desktop__apps {

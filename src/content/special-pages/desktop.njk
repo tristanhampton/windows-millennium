@@ -7,6 +7,11 @@ permalink: "/"
 
 <ul class="desktop__apps">
 	{% for app in collections.desktop %}
-		<li><button><img src="img/icons/{{ app.data.icon }}" alt="{{ app.data.title }} icon"><p>{{ app.data.title }}</p></button></li>
+		<li>
+			<button {% if app.data.iframe %} data-iframe="{{app.data.iframe}}" data-title="{{ app.data.title }}" data-icon="{{ app.data.icon }}" class="js-load-iframe" {% endif %}>
+				<img src="img/icons/{{ app.data.icon }}" alt="{{ app.data.title }} icon">
+				<p>{{ app.data.title }}</p>
+			</button>
+		</li>
 	{% endfor %}
 </ul>

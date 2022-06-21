@@ -155,3 +155,67 @@ hr {
   width: 1px !important;
   white-space: nowrap !important;
 }
+
+.btn-window-control {
+  @include shadows;
+  width: 2rem;
+  height: 2rem;
+  background-color: $toolbar-background;
+  position: relative;
+
+  + .btn-window-control {
+    margin-left: 0.3rem;
+  }
+
+  &.type--minimize {
+    &::after {
+      display: block;
+      content: "";
+      width: 50%;
+      position: absolute;
+      bottom: 0.2rem;
+      left: 50%;
+      height: 0.3rem;
+      background-color: $black;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.type--maximize {
+    &::after {
+      display: block;
+      content: "";
+      width: 80%;
+      height: 80%;
+      position: absolute;
+      left: 50%;
+      border: 0.2rem solid $black;
+      border-top-width: 0.3rem;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+
+  &.type--close {
+    &::before,
+    &::after {
+      display: block;
+      content: "";
+      width: 80%;
+      height: 0.2rem;
+      position: absolute;
+      background-color: $black;
+    }
+
+    &::before {
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    }
+
+    &::after {
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    }
+  }
+}

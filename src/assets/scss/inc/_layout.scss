@@ -69,3 +69,46 @@ h4 {
     max-width: 100%;
   }
 }
+
+.window {
+  @include shadows;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: $toolbar-background;
+
+  &.maximized {
+    width: calc(100vw - 0.6rem);
+    height: calc(100vh - 0.6rem);
+  }
+
+  .window__header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(75deg, #9f9f9f, $toolbar-background);
+    // background-color: $toolbar-background;
+    padding: 0.6rem;
+
+    .window__icon {
+      margin-right: 1rem;
+      width: 100%;
+      max-width: 2rem;
+    }
+
+    .window__title {
+      @include microsoft-sans;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    button:first-of-type {
+      margin-left: auto;
+    }
+  }
+
+  iframe {
+    border: none;
+    overflow: hidden;
+  }
+}
